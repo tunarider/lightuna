@@ -62,7 +62,12 @@ try {
     $thread->setSequence(0);
 
     if ($uriParser->isTraceRecent()) {
-        $responseStart = max(0, $thread->getSize() - $board['maxResponseView']);
+        $traceSize = $uriParser->traceSize();
+        if ($traceSize === 0) {
+            $responseStart = max(0, $thread->getSize() - $board['maxResponseView']);
+        } else {
+            $responseStart = max(0, $thread->getSize() - $traceSize + 1);
+        }
         $responseEnd = $thread->getSize() + 1;
     } else {
         try {

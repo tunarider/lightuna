@@ -97,6 +97,15 @@ class UriParser
         }
     }
 
+    public function traceSize(): int
+    {
+        try {
+            return (int) $this->getPartByIndex(3);
+        } catch (\OutOfBoundsException $e) {
+            return 0;
+        }
+    }
+
     /**
      * @return int
      */
