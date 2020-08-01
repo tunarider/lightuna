@@ -14,10 +14,10 @@ HTML;
 $traceList = '';
 if ($_SERVER['SCRIPT_NAME'] === "{$baseUrl}/trace.php") {
     $maxResponseView = $board['maxResponseView'];
-    $prevResponseStart = max(0, $responseStart - $maxResponseView);
-    $prevResponseEnd = max(0, $responseEnd - $maxResponseView);
-    $nextResponseStart = $responseStart + $maxResponseView;
-    $nextResponseEnd = $responseEnd + $maxResponseView;
+    $prevResponseEnd = $responseStart - 1;
+    $prevResponseStart = max(0, $prevResponseEnd - $maxResponseView);
+    $nextResponseStart = $responseEnd + 1;
+    $nextResponseEnd = $nextResponseStart+ $maxResponseView;
     $traceList = <<<HTML
 <li><a href="$baseUrl/index.php/{$board['uid']}">게시판으로</a></li>
 <li><a href="$baseUrl/trace.php/{$board['uid']}/$threadUid">전부 보기</a></li>
