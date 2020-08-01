@@ -489,6 +489,14 @@ span.spoiler {
         width: auto;
     }
 
+    .thread_owner {
+        font-size: 1em;
+    }
+
+    .thread_title {
+        font-size: 1em;
+    }
+
     .post_form_submit {
         width: 100%;
         min-width: 0;

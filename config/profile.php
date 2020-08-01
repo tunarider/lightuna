@@ -69,7 +69,8 @@ return [
             'userName' => '익명의 테스터',
             'maxResponseSize' => 30,
             'maxResponseInterval' => 1,
-            'maxDuplicateResponseInterval' => 1
+            'maxDuplicateResponseInterval' => 1,
+            'style' => 'situplay.css',
         ]
     ],
     'blocker' => [
