@@ -24,8 +24,8 @@ HTML;
     <ul>
         <li><a href="#top">맨 위</a></li>
         <li><a href="#bottom">맨 아래</a></li>
+        <?= $traceList ?>
         <?= $list ?>
         <li><a href="https://wiki.tunaground.net" target="_blank">참치백과</a></li>
-        <?= $traceList ?>
     </ul>
 </nav>
