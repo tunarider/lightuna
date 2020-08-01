@@ -292,7 +292,7 @@ class PostService
         $salt = substr($ip.$currentDateTime->format('Ymd')."H.", 1, 2);
         $salt = preg_replace("/[^\.-z]/", ".", $salt);
         $salt = strtr($salt,":;<=>?@[\\]^_`","ABCDEFGabcdef0123456789");
-        return substr(crypt($ip.$currentDateTime->format('Ymd'), $salt),-10);
+        return substr(crypt(hash("sha256", $ip.$currentDateTime->format('Ymd')), $salt),-10);
     }
 
     /**
