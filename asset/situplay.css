@@ -334,7 +334,7 @@ nav ul li a {
 .post_form {
     border: none;
     margin: 0;
-    background-color: rgba(50, 50, 50, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .post_form form {
@@ -343,12 +343,10 @@ nav ul li a {
 
 .post_form input {
     background-color: rgba(240, 240, 240, 0);
-    color: rgb(230, 230, 230);
  }
 
 .post_form textarea {
     background-color: rgba(240, 240, 240, 0);
-    color: rgb(230, 230, 230);
 }
 
 .post_form_default {
