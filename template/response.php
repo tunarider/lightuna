@@ -68,9 +68,7 @@ HTML;
         <span class="response_sequence"><?= $response->getSequence() ?></span>
         <span class="response_owner"><?= $response->getUserName() ?></span>
         <span class="response_owner_id">
-            <a href="#" onclick="banUserId('<?= $baseUrl ?>', <?= $response->getThreadUid() ?>, <?= $response->getResponseUid() ?>)">
-                (<?= $response->getUserId() ?>)
-            </a>
+            (<a href="#" onclick="banUserId('<?= $baseUrl ?>', <?= $response->getThreadUid() ?>, <?= $response->getResponseUid() ?>)"><?= $response->getUserId() ?></a>)
         </span>
         <span class="response_mask_button">
         <?= $maskButtonHtml ?>
