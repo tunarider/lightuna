@@ -137,6 +137,7 @@ $keyword = '';
 </div>
 <div id="notice_container">
     <div id="notice">
+        <?php include("./config/default.html"); ?>
         <?php include("./config/{$board['uid']}.html"); ?>
     </div>
 </div>
