@@ -303,6 +303,7 @@ nav ul li a {
 
 .response_sequence {
     font-weight: bold;
+    cursor: pointer;
 }
 
 .response_owner_id {
