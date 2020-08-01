@@ -143,6 +143,7 @@ $keyword = '';
 </div>
 <div id="thread_section">
     <?php
+    $shrinkResponse = true;
     if (sizeof($threads) > 0) {
         for ($i = 0; $i < min($board['maxThreadView'], sizeof($threads)); $i++) {
             if (sizeof($threads[$i]->getResponses()) < 1) {

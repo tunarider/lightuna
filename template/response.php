@@ -58,6 +58,21 @@ HTML;
 } else {
     $maskButtonHtml = '';
 }
+
+$responseContent = $response->getContent();
+if ($shrinkResponse === true) {
+    $lineCount = preg_match_all('/<br ?\/?>/', $responseContent);
+    if ($lineCount > $board['maxResponseLineView']) {
+        $responseContents = preg_split('/<br ?\/?>/', $responseContent, $board['maxResponseLineView']);
+        array_pop($responseContents);
+        $responseContents[] = <<<HTML
+<a href="{$config['site']['baseUrl']}/trace.php/{$board['uid']}/{$response->getThreadUid()}/{$response->getSequence()}">
+더 보기
+</a>
+HTML;
+        $responseContent = join('<br/>', $responseContents);
+    }
+}
 ?>
 <div class="response"
      id="response_<?= $response->getThreadUid() ?>_<?= $response->getSequence() ?>"
@@ -78,6 +93,6 @@ HTML;
     <?= $image ?>
     <div class="content">
         <?= $youtubeEmbed ?>
-        <?= $response->getContent() ?>
+        <?= $responseContent ?>
     </div>
 </div>

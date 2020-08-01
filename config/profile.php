@@ -50,7 +50,7 @@ return [
             'maxThreadView' => 5,
             'maxThreadListView' => 15,
             'maxResponseView' => 30,
-            'maxResponseLineView' => 50,
+            'maxResponseLineView' => 15,
             'maxTitleLength' => 50,
             'maxNameLength' => 60,
             'maxContentLength' => 20000,
