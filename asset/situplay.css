@@ -474,6 +474,10 @@ span.spoiler {
         width: auto;
     }
 
+    .thread_list_item p {
+        margin: 0.2em;
+    }
+
     .thread {
         width: auto;
     }

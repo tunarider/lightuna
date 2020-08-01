@@ -70,7 +70,7 @@ return [
             'maxResponseSize' => 30,
             'maxResponseInterval' => 1,
             'maxDuplicateResponseInterval' => 1,
-            'style' => 'situplay.css',
+            'style' => 'default.css',
         ]
     ],
     'blocker' => [
