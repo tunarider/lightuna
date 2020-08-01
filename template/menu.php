@@ -15,6 +15,7 @@ $traceList = '';
 if ($_SERVER['SCRIPT_NAME'] === "{$baseUrl}/trace.php") {
     $maxResponseView = $board['maxResponseView'];
     $traceList = <<<HTML
+<li><a href="$baseUrl/index.php/{$board['uid']}">게시판으로</a></li>
 <li><a href="$baseUrl/trace.php/{$board['uid']}/$threadUid/recent">최근 $maxResponseView 보기</a></li>
 <li><a href="$baseUrl/trace.php/{$board['uid']}/$threadUid">전부 보기</a></li>
 HTML;
