@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
         el.innerHTML = el.innerHTML.replace(
             /https?:\/\/((?!www\.youtube\.com\/embed\/)(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b[-a-zA-Z0-9가-힣()@:%_\+;.~#?&//=]*)/g,
             function (match) {
-                return '<a href="' + match + '">' + match + '</a>';
+                return '<a href="' + match + '" target="_blank">' + match + '</a>';
             }
         )
     }
