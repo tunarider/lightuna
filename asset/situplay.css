@@ -24,6 +24,10 @@ body {
     background-color: rgb(247, 231, 211);
 }
 
+.pad_3em {
+    height: 3em;
+}
+
 nav {
     background-color: rgba(50, 50, 50, .7);
     width: 100%;
@@ -180,7 +184,6 @@ nav ul li a {
 
 #notice_container {
     display: flex;
-    margin: 3em 0;
     align-items: center;
     justify-content: center;
 }
@@ -209,14 +212,12 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 3em 0;
 }
 
 .thread {
     background-color: rgb(233, 195, 154);
     color: rgb(80, 80, 80);
     width: 60em;
-    margin: 2em 0;
     box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.75);
 }
 

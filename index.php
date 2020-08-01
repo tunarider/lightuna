@@ -115,7 +115,7 @@ $keyword = '';
             for ($i = 0; $i < sizeof($threads); $i++) {
                 $thread = $threads[$i];
                 if ($i < $board['maxThreadView']) {
-                    $titleLink = "#thread_{$thread->getSequence()}";
+                    $titleLink = "#nav_thread_{$thread->getSequence()}";
                     $sizeLink = "{$config['site']['baseUrl']}/trace.php/{$board['uid']}/{$thread->getThreadUid()}/recent";
                     $sequenceLink = "{$config['site']['baseUrl']}/trace.php/{$board['uid']}/{$thread->getThreadUid()}";
                 } else {

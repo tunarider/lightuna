@@ -1,3 +1,5 @@
+<div class="pad_3em"
+     id="nav_thread_<?= $thread->getSequence() ?>"></div>
 <div class="thread"
      id="thread_<?= $thread->getThreadUid() ?>">
     <?php
@@ -11,8 +13,8 @@
         ?>
     </div>
     <?php if (!$thread->getEnd()) { ?>
-    <?php     require(__DIR__ . '/create_response.php'); ?>
+        <?php require(__DIR__ . '/create_response.php'); ?>
     <?php } else { ?>
-    <div class="dead_sign">끝.</div>
+        <div class="dead_sign">끝.</div>
     <?php } ?>
 </div>
