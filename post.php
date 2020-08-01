@@ -64,6 +64,9 @@ $ip = $netUtil->getIP();
 $currentDateTime = new DateTime();
 
 try {
+    if ($type !== 'thread') {
+        $threadUid = $_POST['thread_uid'];
+    }
     if ($_FILES['attachment']['error'] !== UPLOAD_ERR_NO_FILE) {
         $attachment = $attachmentService->upload($_FILES['attachment']);
     } else {
@@ -85,7 +88,6 @@ try {
             $currentDateTime
         );
     } else {
-        $threadUid = $_POST['thread_uid'];
         $postService->postResponse(
             $threadUid,
             $userName,
