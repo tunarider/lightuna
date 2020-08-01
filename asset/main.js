@@ -95,7 +95,6 @@ function manageThread(root, boardUid, threadUid) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                console.log(xhr.responseText);
                 const response = JSON.parse(xhr.responseText);
                 if (response.result === true) {
                     alert('성공!');
@@ -186,9 +185,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    const responses = document.getElementsByClassName('response');
+    Array.prototype.forEach.call(responses, function (response) {
+        const sequences = response.getElementsByClassName('response_sequence');
+        Array.prototype.forEach.call(sequences, function (sequence) {
+            const anchor = response.dataset.boardUid
+                + '>'
+                + response.dataset.threadUid
+                + '>'
+                + response.dataset.responseSequence;
+            sequence.addEventListener("click", function () {
+                var tempElem = document.createElement('textarea');
+                tempElem.value = anchor
+                document.body.appendChild(tempElem);
+                tempElem.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempElem);
+                alert(anchor + " 복사됨.");
+            });
+        });
+    });
+
     const consoleForm = document.getElementsByClassName('post_form_console');
-
-
     Array.prototype.forEach.call(consoleForm, function (el) {
         const threadUid = el.dataset.threadUid;
         el.value = sessionStorage.getItem(threadUid + '-console');
