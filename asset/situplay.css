@@ -69,7 +69,6 @@ nav ul li a {
     padding: 0;
     background-color: rgba(255, 255, 255, 0.8);
     border: rgb(210, 210, 210) 1px solid;
-    color: rgb(80, 80, 80);
     box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.75);
 }
 
@@ -83,7 +82,7 @@ nav ul li a {
     font-size: 0.8em;
     padding: 0.4em;
     background-color: rgba(240, 240, 240, 0);
-    color: rgb(230, 230, 230);
+    color: rgb(80, 80, 80);
 }
 
 .search_type_input {
