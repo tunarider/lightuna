@@ -121,6 +121,15 @@ try {
 <div id="server_info"
      data-base-url="<?= $config['site']['baseUrl'] ?>">
 </div>
+<div id="ad_container">
+    <div id="ad">
+        <?php
+        if (file_exists(__DIR__ . '/config/adsense.html')) {
+            require(__DIR__ . '/config/adsense.html');
+        }
+        ?>
+    </div>
+</div>
 <div id="thread_section">
     <?php require(__DIR__ . '/template/manage_thread.php'); ?>
 </div>

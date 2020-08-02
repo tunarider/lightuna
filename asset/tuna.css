@@ -207,13 +207,13 @@ nav ul li a {
     font-size: 0.9em;
 }
 
-#notice_container {
+#notice_container, .ad_container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#notice {
+#notice, .ad {
     width: 60em;
     background-color: rgb(230, 250, 255);
     color: rgb(80, 80, 80);
