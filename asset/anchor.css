@@ -39,6 +39,7 @@ nav {
     white-space: nowrap;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    z-index: 1;
 }
 
 nav::-webkit-scrollbar {

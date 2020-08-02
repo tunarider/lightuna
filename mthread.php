@@ -121,8 +121,8 @@ try {
 <div id="server_info"
      data-base-url="<?= $config['site']['baseUrl'] ?>">
 </div>
-<div id="ad_container">
-    <div id="ad">
+<div class="ad_container">
+    <div class="ad">
         <?php
         if (file_exists(__DIR__ . '/config/adsense.html')) {
             require(__DIR__ . '/config/adsense.html');
