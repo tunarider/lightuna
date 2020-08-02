@@ -381,10 +381,17 @@ nav ul li a {
     color: rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:0)
+and (min-resolution:.001dpcm) {
+    .post_form textarea {
+        font-size: 1.2em !important;
+    }
+}
+
 .post_form textarea {
     background-color: rgba(0, 0, 0, 0);
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.2em;
+    font-size: 1.0em;
 }
 
 .post_form_default {
