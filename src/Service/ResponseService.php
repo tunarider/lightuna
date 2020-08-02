@@ -8,6 +8,7 @@ use Lightuna\Database\ThreadDaoInterface;
 use Lightuna\Exception\DataAccessException;
 use Lightuna\Exception\InvalidUserInputException;
 use Lightuna\Object\ArcResponse;
+use Lightuna\Object\Board;
 use Lightuna\Object\Response;
 
 /**
@@ -154,6 +155,17 @@ class ResponseService
             throw $e;
         } catch (DataAccessException $e) {
             $this->dataSource->rollBack();
+            throw $e;
+        }
+    }
+
+    public function getRecentResponseCount(Board $board)
+    {
+        try {
+            return $this->responseDao->getRecentResponseCount($board['uid'], $board['responseCountCriteria']);
+        } catch (\PDOException $e) {
+            throw $e;
+        } catch (DataAccessException $e) {
             throw $e;
         }
     }

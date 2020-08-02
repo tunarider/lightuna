@@ -12,6 +12,9 @@ use Lightuna\Log\Logger;
 use Lightuna\Exception\DataAccessException;
 use Lightuna\Util\ExceptionHandler;
 use Lightuna\Common\SearchType;
+use Lightuna\Service\ResponseService;
+use Lightuna\Database\MariadbArcResponseDao;
+use Lightuna\Database\MysqlArcResponseDao;
 
 define('FRONT_PAGE', true);
 
@@ -41,10 +44,13 @@ try {
 if ($config['database']['type'] === 'mysql') {
     $threadDao = new MysqlThreadDao($dataSource, $logger);
     $responseDao = new MysqlResponseDao($dataSource, $logger);
+    $arcResponseDao = new MysqlArcResponseDao($dataSource, $logger);
 } else {
     $threadDao = new MariadbThreadDao($dataSource, $logger);
     $responseDao = new MariadbResponseDao($dataSource, $logger);
+    $arcResponseDao = new MariadbArcResponseDao($dataSource, $logger);
 }
+$responseService = new ResponseService($config, $dataSource, $threadDao, $responseDao, $arcResponseDao);
 
 try {
     $threads = $threadDao->getThreadListByBoardUid($board['uid'], $board['maxThreadListView']);
@@ -80,6 +86,7 @@ try {
             ));
         }
     }
+    $userCount = $responseService->getRecentResponseCount($board);
 } catch (PDOException $e) {
     $logger->error('index.php: Database exception: {msg}', ['msg' => $e->getMessage()]);
     $exceptionHandler->handle(new PDOException(MSG_DATABASE_FAILED));

@@ -30,9 +30,17 @@ if ($_SERVER['SCRIPT_NAME'] === "{$baseUrl}/trace.php") {
 <li><a href="$baseUrl/trace.php/{$board['uid']}/$threadUid/{$nextResponseStart}/{$nextResponseEnd}">다음 $maxResponseView</a></li>
 HTML;
 }
+
+$userCountHtml = '';
+if (isset($userCount)) {
+    $userCountHtml = <<<HTML
+<li><a>{$userCount}</a></li>
+HTML;
+}
 ?>
 <nav>
     <ul>
+        <?= $userCountHtml ?>
         <li><a href="#top">맨 위</a></li>
         <li><a href="#bottom">맨 아래</a></li>
         <?= $traceList ?>

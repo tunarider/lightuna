@@ -11,6 +11,28 @@ use Lightuna\Object\ResponseContent;
  */
 abstract class AbstractResponseDao extends AbstractDao implements ResponseDaoInterface
 {
+    public function getRecentResponseCount(string $boardUid, int $criteria): int
+    {
+        $sql = <<<SQL
+select  count(distinct r.ip)
+from    thread t,
+        response r
+where   t.board_uid = :board_uid
+    and r.thread_uid = t.thread_uid
+    and r.create_date > now() - interval {$criteria} minute;
+SQL;
+        $conn = $this->dataSource->getConnection();
+        $stmt = $conn->prepare($sql);
+        $stmt->bindValue(':board_uid', $boardUid, \PDO::PARAM_STR);
+        $stmt->execute();
+        $error = $stmt->errorInfo();
+        if ($error[0] !== '00000') {
+            $this->logQueryError(__METHOD__, $error[2]);
+            throw new DataAccessException(MSG_QUERY_FAILED);
+        }
+        return $stmt->fetchColumn();
+    }
+
     /**
      * @param int $threadUid
      * @param int $start

@@ -10,6 +10,8 @@ use Lightuna\Object\Response;
  */
 interface ResponseDaoInterface
 {
+    public function getRecentResponseCount(string $boardUid, int $criteria): int;
+
     /**
      * @param int $threadUid
      * @param int $start

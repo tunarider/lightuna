@@ -62,6 +62,7 @@ return [
             'maxImageNameLength' => 80,
             'style' => 'default.css',
             'customWeek' => ['일', '월', '화', '수', '목', '금', '토'],
+            'responseCountCriteria' => '10',
             'managerEmail' => 'admin@example.com'
         ],
         'develop' => [
