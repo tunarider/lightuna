@@ -10,6 +10,11 @@ $config = require('./require.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta name="format-detection" content="telephone=no">
     <title>오류</title>
+    <?php
+    if (isset($analyticsCode)) {
+        require(__DIR__ . '/template/analytics.php');
+    }
+    ?>
 </head>
 <body>
 <p>

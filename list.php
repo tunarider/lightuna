@@ -120,6 +120,11 @@ HTML;
     <meta name="format-detection" content="telephone=no">
     <title>검색 :: <?= $board['name'] ?></title>
     <link rel="stylesheet" type="text/css" href="<?= $config['site']['baseUrl'] ?>/asset/<?= $board['style'] ?>"/>
+    <?php
+    if (isset($analyticsCode)) {
+        require(__DIR__ . '/template/analytics.php');
+    }
+    ?>
 </head>
 <body>
 <?php require(__DIR__ . '/template/menu.php'); ?>

@@ -107,6 +107,11 @@ $keyword = '';
     <title>인덱스 :: <?= $board['name'] ?></title>
     <link rel="stylesheet" type="text/css" href="<?= $config['site']['baseUrl'] ?>/asset/<?= $board['style'] ?>"/>
     <script type="text/javascript" src="<?= $config['site']['baseUrl'] ?>/asset/main.js"></script>
+    <?php
+    if (isset($analyticsCode)) {
+        require(__DIR__ . '/template/analytics.php');
+    }
+    ?>
 </head>
 <body>
 <?php require(__DIR__ . '/template/menu.php'); ?>

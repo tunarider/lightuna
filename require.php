@@ -34,6 +34,9 @@ if ($lightuna_env === false) {
 } else {
     $config = require(__DIR__ . "/config/profile.{$lightuna_env}.php");
 }
+if (isset($config['site']['gtags'])) {
+    $analyticsCode = $config['site']['gtags'];
+}
 
 // Set Global Exception Handler
 use Lightuna\Util\ContextParser;
