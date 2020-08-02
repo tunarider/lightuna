@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const inPageAnchor = 'response_' + threadUid + '_' + responseStart;
                 if (responseEnd === ''
                     && document.getElementById(inPageAnchor)) {
-                    return '<a href="#' + inPageAnchor + '" onclick="jump(\'' + inPageAnchor + '\')">' + match + '</span>';
+                    return '<a href="#' + inPageAnchor + '" onclick="jump(\'' + inPageAnchor + '\')">' + match + '</a>';
                 } else {
                     return '<a href="'
                         + baseUrl
