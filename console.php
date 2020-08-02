@@ -47,8 +47,8 @@ if ($config['database']['type'] === 'mysql') {
     $arcResponseDao = new MariadbArcResponseDao($dataSource, $logger);
     $banDao = new MariadbBanDao($dataSource, $logger);
 }
-$responseService = new ResponseService($dataSource, $threadDao, $responseDao, $arcResponseDao);
-$threadService = new ThreadService($threadDao);
+$responseService = new ResponseService($config, $dataSource, $threadDao, $responseDao, $arcResponseDao);
+$threadService = new ThreadService($config, $threadDao);
 $userService = new UserService($responseDao, $banDao);
 
 $data = json_decode(file_get_contents('php://input'));

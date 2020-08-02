@@ -15,7 +15,8 @@ return [
         'imageUploadPath' => __DIR__ . '/../upload',
         'allowFileType' => ['image/png', 'image/jpg', 'image/jpeg'],
         'logFilePath' => __DIR__ . '/../logs/info.log',
-        'managerEmail' => 'admin@example.com'
+        'managerEmail' => 'admin@example.com',
+        'masterPassword' => '4c94485e0c21ae6c41ce1dfe7b6bfaceea5ab68e40a2476f50208e526f506080'
     ],
     'middleware' => [
         new Location(

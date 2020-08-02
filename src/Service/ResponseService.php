@@ -16,6 +16,8 @@ use Lightuna\Object\Response;
  */
 class ResponseService
 {
+    /** @var array */
+    private $config;
     /** @var DataSource */
     private $dataSource;
     /** @var ThreadDaoInterface */
@@ -27,17 +29,20 @@ class ResponseService
 
     /**
      * ResponseService constructor.
+     * @param array $config
      * @param DataSource $dataSource
      * @param ThreadDaoInterface $threadDao
      * @param ResponseDaoInterface $responseDao
      * @param ArcResponseDaoInterface $arcResponseDao
      */
     public function __construct(
+        array $config,
         DataSource $dataSource,
         ThreadDaoInterface $threadDao,
         ResponseDaoInterface $responseDao,
         ArcResponseDaoInterface $arcResponseDao
     ) {
+        $this->config = $config;
         $this->dataSource = $dataSource;
         $this->threadDao = $threadDao;
         $this->responseDao = $responseDao;
@@ -79,7 +84,10 @@ class ResponseService
                 $response->getYoutube(),
                 new \DateTime()
             );
-            if ($thread->getPassword() !== hash('sha256', $threadPassword)) {
+            if (
+                $this->config['site']['masterPassword'] !== hash('sha256', $threadPassword)
+                && $thread->getPassword() !== hash('sha256', $threadPassword)
+            ) {
                 throw new InvalidUserInputException(MSG_INVALID_PASSWORD);
             }
             $this->arcResponseDao->createArcResponse($arcResponse);
@@ -129,7 +137,10 @@ class ResponseService
                 $arcResponse->getAttachment(),
                 $arcResponse->getYoutube()
             );
-            if ($thread->getPassword() !== hash('sha256', $threadPassword)) {
+            if (
+                $this->config['site']['masterPassword'] !== hash('sha256', $threadPassword)
+                && $thread->getPassword() !== hash('sha256', $threadPassword)
+            ) {
                 throw new InvalidUserInputException(MSG_INVALID_PASSWORD);
             }
             $this->responseDao->createResponse($response);

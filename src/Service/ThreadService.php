@@ -11,11 +11,13 @@ use Lightuna\Exception\InvalidUserInputException;
  */
 class ThreadService
 {
+    private $config;
     /** @var ThreadDaoInterface */
     private $threadDao;
 
-    public function __construct(ThreadDaoInterface $threadDao)
+    public function __construct(array $config, ThreadDaoInterface $threadDao)
     {
+        $this->config = $config;
         $this->threadDao = $threadDao;
     }
 
@@ -32,7 +34,10 @@ class ThreadService
         } catch (DataAccessException $e) {
             throw $e;
         }
-        if ($thread->getPassword() !== hash('sha256', $password)) {
+        if (
+            $this->config['site']['masterPassword'] !== hash('sha256', $password)
+            && $thread->getPassword() !== hash('sha256', $password)
+        ) {
             throw new InvalidUserInputException(MSG_INVALID_PASSWORD);
         }
     }
