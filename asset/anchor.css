@@ -322,6 +322,7 @@ nav ul li a {
 .response_owner_id a {
     color: inherit;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 #create_thread_container {
