@@ -272,6 +272,11 @@ nav ul li a {
     font-size: 0.9em;
 }
 
+.thread_body {
+    background-color: rgb(220, 220, 220);
+    padding: 0.1px 0;
+}
+
 .response {
     margin: 1.0em 0.5em;
     padding: 0.3em 0.5em;
