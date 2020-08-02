@@ -71,7 +71,7 @@ return [
             'maxResponseSize' => 300,
             'maxResponseInterval' => 1,
             'maxDuplicateResponseInterval' => 1,
-            'style' => 'default.css',
+            'style' => 'tuna.css',
         ]
     ],
     'blocker' => [

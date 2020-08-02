@@ -127,7 +127,7 @@ $keyword = '';
             }
         }
         ?>
-        <div class="thread_list_item center">
+        <div class="thread_list_nav center">
             <a href="<?= $config['site']['baseUrl'] ?>/list.php/<?= $board['uid'] ?>">
                 <p>더 보기
                 <p>

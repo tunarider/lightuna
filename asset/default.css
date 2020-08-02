@@ -131,6 +131,21 @@ nav ul li a {
     box-shadow: 5px 5px 20px -8px rgba(0,0,0,0.75);
 }
 
+.thread_list_nav {
+    padding: 0.1em;
+    margin: 0.5em;
+    border-bottom: none;
+}
+
+.thread_list_nav a {
+    text-decoration: none;
+    color: rgb(150, 150, 150);
+}
+
+.thread_list_nav p {
+    margin: 0.4em 0;
+}
+
 .thread_list_item {
     padding: 0.1em;
     margin: 0.3em;

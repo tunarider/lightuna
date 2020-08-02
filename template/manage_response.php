@@ -34,7 +34,7 @@ if ($response->getSequence() > 0) {
     $threadUid = $response->getThreadUid();
     $responseUid = $response->getResponseUid();
     $maskButtonHtml = <<<HTML
-<button class="response_mask" onclick="maskResponse('$baseUrl', $threadUid, $responseUid)">
+<button class="button_default response_mask" onclick="maskResponse('$baseUrl', $threadUid, $responseUid)">
 Mask
 </button>
 HTML;
@@ -59,10 +59,7 @@ HTML;
             <span class="response_owner"><?= $response->getUserName() ?></span>
         </label>
         <span class="response_owner_id">
-            <a href="#"
-               onclick="banUserId('<?= $baseUrl ?>', <?= $response->getThreadUid() ?>, <?= $response->getResponseUid() ?>)">
-                (<?= $response->getUserId() ?>)
-            </a>
+            (<a onclick="banUserId('<?= $baseUrl ?>', <?= $response->getThreadUid() ?>, <?= $response->getResponseUid() ?>)"><?= $response->getUserId() ?></a>)
         </span>
         <span class="response_mask_button">
         </span>
