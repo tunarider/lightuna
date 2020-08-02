@@ -480,6 +480,11 @@ span.spoiler {
 
     .thread_list_item p {
         margin: 0.2em;
+        font-size: 0.9em;
+    }
+
+    #notice {
+        font-size: 0.9em;
     }
 
     .thread {
@@ -491,7 +496,7 @@ span.spoiler {
     }
 
     .thread_owner {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .thread_title {
