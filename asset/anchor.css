@@ -37,6 +37,12 @@ nav {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
 }
 
 nav ul {
