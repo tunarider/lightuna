@@ -68,7 +68,7 @@ return [
             'uid' => 'develop',
             'name' => '테스트용',
             'userName' => '익명의 테스터',
-            'maxResponseSize' => 30,
+            'maxResponseSize' => 300,
             'maxResponseInterval' => 1,
             'maxDuplicateResponseInterval' => 1,
             'style' => 'default.css',
