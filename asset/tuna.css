@@ -384,6 +384,7 @@ nav ul li a {
 .post_form textarea {
     background-color: rgba(0, 0, 0, 0);
     color: rgba(255, 255, 255, 0.7);
+    font-size: 1.3em;
 }
 
 .post_form_default {
@@ -567,5 +568,9 @@ span.spoiler {
     }
 
     .search_form {
+    }
+
+    .post_form textarea {
+        font-size: inherit;
     }
 }
