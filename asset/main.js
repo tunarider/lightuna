@@ -116,6 +116,14 @@ function manageThread(root, boardUid, threadUid) {
     }));
 }
 
+function jump(id) {
+    event.preventDefault();
+    event.stopPropagation();
+    const el = document.getElementById(id);
+    el.scrollIntoView();
+    window.scrollBy(0, -1 * document.getElementsByTagName('nav')[0].offsetHeight)
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const serverInfo = document.getElementById('server_info');
     const baseUrl = serverInfo.dataset.baseUrl;
@@ -139,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const inPageAnchor = 'response_' + threadUid + '_' + responseStart;
                 if (responseEnd === ''
                     && document.getElementById(inPageAnchor)) {
-                    return '<a href="#' + inPageAnchor + '">' + match + '</a>';
+                    return '<a href="#' + inPageAnchor + '" onclick="jump(\'' + inPageAnchor + '\')">' + match + '</span>';
                 } else {
                     return '<a href="'
                         + baseUrl
