@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const baseUrl = serverInfo.dataset.baseUrl;
 
     function ncrToChar(text) {
-        return text.replace(/&#(\d+);/gm, function (_, match) {
+        return text.replace(/&#([^;]+);/gm, function (_, match) {
             return String.fromCharCode(match);
         });
     }
