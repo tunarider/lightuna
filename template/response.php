@@ -60,7 +60,7 @@ HTML;
 }
 
 $responseContent = $response->getContent();
-if ($shrinkResponse === true) {
+if (isset($shrinkResponse) && $shrinkResponse === true) {
     $lineCount = preg_match_all('/<br ?\/?>/', $responseContent);
     if ($lineCount > $board['maxResponseLineView']) {
         $responseContents = preg_split('/<br ?\/?>/', $responseContent, $board['maxResponseLineView']);
