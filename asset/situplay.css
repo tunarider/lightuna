@@ -494,6 +494,7 @@ span.spoiler {
     }
 
     #thread_list {
+        padding: 0.1px 0;
         width: auto;
     }
 
