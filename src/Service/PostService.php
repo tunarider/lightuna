@@ -271,10 +271,10 @@ class PostService
     private function makeUserName(string $userName)
     {
         $userName = preg_replace_callback("/([^\#]*)\#(.+)/", function ($matches) {
-            $salt = substr($matches[2]."H.", 1, 2);
+            $salt = substr($matches[2] . "H.", 1, 2);
             $salt = preg_replace("/[^\.-z]/", ".", $salt);
-            $salt = strtr($salt,":;<=>?@[\\]^_`","ABCDEFGabcdef0123456789");
-            $trip = substr(crypt($matches[2], $salt),-10);
+            $salt = strtr($salt, ":;<=>?@[\\]^_`", "ABCDEFGabcdef0123456789");
+            $trip = substr(crypt($matches[2], $salt), -10);
             return $matches[1] . '<b>◆' . $trip . '</b>';
         }, $userName);
         if (mb_strlen($userName) > $this->board['maxNameLength']) {
@@ -289,10 +289,17 @@ class PostService
      */
     private function makeUserId(string $ip, Datetime $currentDateTime)
     {
-        $salt = substr($ip.$currentDateTime->format('Ymd')."H.", 1, 2);
+        $salt = substr(
+            $ip
+            . $currentDateTime->format('Ymd')
+            . $this->board['uid']
+            . "H.",
+            1,
+            2
+        );
         $salt = preg_replace("/[^\.-z]/", ".", $salt);
-        $salt = strtr($salt,":;<=>?@[\\]^_`","ABCDEFGabcdef0123456789");
-        return substr(crypt(hash("sha256", $ip.$currentDateTime->format('Ymd')), $salt),-10);
+        $salt = strtr($salt, ":;<=>?@[\\]^_`", "ABCDEFGabcdef0123456789");
+        return substr(crypt(hash("sha256", $ip . $currentDateTime->format('Ymd').$this->board['uid']), $salt), -10);
     }
 
     /**
