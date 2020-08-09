@@ -186,11 +186,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const nameForms = document.getElementsByClassName('post_form_name');
     Array.prototype.forEach.call(nameForms, function (el) {
         const threadUid = el.dataset.threadUid;
-        el.value = sessionStorage.getItem(threadUid + '-name');
+        if (localStorage.getItem('saveUser') === '1') {
+            el.value = localStorage.getItem(threadUid + '-name');
+        } else {
+            el.value = sessionStorage.getItem(threadUid + '-name');
+        }
         el.addEventListener('input', function () {
-            sessionStorage.setItem(threadUid + '-name', this.value);
+            if (localStorage.getItem('saveUser') === '1') {
+                localStorage.setItem(threadUid + '-name', this.value);
+            } else {
+                sessionStorage.setItem(threadUid + '-name', this.value);
+            }
         });
     });
+
+    const postingOptions = document.getElementsByClassName('posting_option_save_user');
+    Array.prototype.forEach.call(postingOptions, function (el) {
+        if (localStorage.getItem('saveUser') === '1') {
+            el.checked = true;
+        }
+        el.addEventListener('change', function () {
+            if (el.checked) {
+                sessionStorage.clear();
+                localStorage.setItem('saveUser', '1');
+            } else {
+                localStorage.clear();
+                localStorage.setItem('saveUser', '0');
+            }
+        })
+    })
 
     const responses = document.getElementsByClassName('response');
     Array.prototype.forEach.call(responses, function (response) {

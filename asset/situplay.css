@@ -446,6 +446,12 @@ nav ul li a {
     margin: 1.5em;
 }
 
+.posting_option {
+    background-color: rgb(255, 255, 255);
+    padding: 0.3em;
+    display: inline-block;
+}
+
 .mona {
     white-space: nowrap;
     overflow-x: auto;

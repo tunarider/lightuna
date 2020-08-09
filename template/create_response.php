@@ -9,6 +9,10 @@ if (!isset($content)) {
         <input type="hidden" name="board_uid" value="<?= $board['uid'] ?>" class="post_form_board_uid">
         <input type="hidden" name="thread_uid" value="<?= $thread->getThreadUid() ?>" class="post_form_thread_uid">
         <input type="hidden" name="return_url" value="<?= $returnUrl ?>">
+        <label class="posting_option">
+            <input type="checkbox" name="save_data" class="posting_option_save_user"/>
+            나메/콘솔 유지
+        </label>
         <input type="text"
                name="name"
                placeholder="나메(<?= $board['maxNameLength'] ?>자까지)"

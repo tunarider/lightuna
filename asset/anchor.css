@@ -437,6 +437,12 @@ nav ul li a {
     margin: 0 0 0 0.5em;
 }
 
+.posting_option {
+    background-color: rgb(255, 255, 255);
+    padding: 0.3em;
+    display: inline-block;
+}
+
 .thread_form_submit {
     width: 100%;
     min-width: 40em;
