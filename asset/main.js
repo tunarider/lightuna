@@ -240,10 +240,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const consoleForm = document.getElementsByClassName('post_form_console');
     Array.prototype.forEach.call(consoleForm, function (el) {
         const threadUid = el.dataset.threadUid;
-        el.value = sessionStorage.getItem(threadUid + '-console');
+        if (localStorage.getItem('saveUser') === '1') {
+            el.value = localStorage.getItem(threadUid + '-console');
+        } else {
+            el.value = sessionStorage.getItem(threadUid + '-console');
+        }
 
         el.addEventListener('input', function () {
-            sessionStorage.setItem(threadUid + '-console', this.value);
+            if (localStorage.getItem('saveUser') === '1') {
+                localStorage.setItem(threadUid + '-console', this.value);
+            } else {
+                sessionStorage.setItem(threadUid + '-console', this.value);
+            }
         });
 
         el.addEventListener('input', function () {
